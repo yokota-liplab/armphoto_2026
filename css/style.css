@@ -343,6 +343,52 @@ a {
     body { background: #FFF2F2; }
     .main { background: transparent; }
 
+	/* ========== SP専用調整：バランス重視の最終修正 ========== */
+@media screen and (max-width: 899px) {
+
+    /* ...（他のSP設定はそのまま）... */
+
+    .participation-cta {
+        /* 背景を横幅いっぱいに固定し、はみ出しを防ぐ */
+        background-image: url("../img/cta_bg_pink.png") !important;
+        background-size: 100% auto !important; 
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        /* 中の要素を小さくするため、上下の余白を少し詰める */
+        padding: 40px 15px !important; 
+        margin: 20px auto !important;
+        width: 95% !important;
+        max-width: 600px !important;
+        font-family: "Zen Maru Gothic", sans-serif !important;
+    }
+
+    .cta-title {
+        /* テキストを小さくして1行あたりの余裕を作る */
+        font-family: "Zen Maru Gothic", sans-serif !important;
+        font-size: 16px !important; 
+        line-height: 1.5 !important;
+        margin-bottom: 20px !important;
+        color: #333 !important;
+    }
+
+    .cta-btn-wrap a {
+        /* ボタンを一回り小さくして背景に収める */
+        font-family: "Zen Maru Gothic", sans-serif !important;
+        font-size: 17px !important;
+        min-width: 200px !important;
+        padding: 10px 20px !important;
+        border-radius: 10px !important;
+        background: linear-gradient(180deg, #E8B7B7 0%, #D6A0A0 100%) !important;
+        color: #fff !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* マーカーも細くして圧迫感を減らす */
+    .marker {
+        background: linear-gradient(transparent 70%, #F4B8B8 30%) !important;
+    }
+}
+
 }
 
     /* 参加CTAセクション：デザイン修正（PC/SP共通ベース） */
