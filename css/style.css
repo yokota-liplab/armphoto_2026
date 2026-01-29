@@ -305,7 +305,7 @@ a {
 }
 
 
-/* ========== SP専用調整（競合解消・中央寄せ・サイズ最適化） ========== */
+/* ========== SP専用調整：画像拡大と要素バランスの最適化 ========== */
 @media screen and (max-width: 899px) {
     ._pc { display: none; }
     ._sp { display: block; }
@@ -322,85 +322,74 @@ a {
     }
     .head-logo._pc { display: block; width: 130px; }
     .head-btn { margin-left: auto; flex: 0 0 auto; }
-    .head-btn a { font-size: 18px; padding: 12px 50px; border-radius: 5px; letter-spacing: .05em; }
-    .head-btn a > ._icon { display: none; }
+    .head-btn a { font-size: 18px; padding: 12px 50px; border-radius: 5px; }
 
     body { background: #FFF2F2; }
     .main { background: transparent; margin-top: 60px; }
 
-    /* 参加CTA：画像サイズを抑えてバランス調整 */
+    /* 参加CTA：画像を切らさず、最大限大きく見せる */
     .participation-cta {
         background-image: url("../img/cta_bg_pink.png") !important;
-        /* containにすることで、画像が切れるのを物理的に防ぎます */
-        background-size: contain !important; 
+        /* 修正：横幅を100%にすることで「はみ出し」を物理的にゼロにします */
+        background-size: 100% auto !important; 
         background-position: center center !important;
         background-repeat: no-repeat !important;
         
-        /* 画像そのものを1.1倍〜1.2倍に拡大して「一回り大きく」見せます */
-        transform: scale(1.1); 
+        /* 修正：上下の余白をさらに増やし、画像の上下の隠れていた部分を露出させます */
+        padding: 90px 10px !important; 
         
-        /* コンテンツが圧迫されないよう余白を再調整 */
-        padding: 50px 10px !important; 
-        margin: 30px auto !important;
-        width: 90% !important;
+        margin: 20px auto !important;
+        width: 100% !important;
         font-family: "Zen Maru Gothic", sans-serif !important;
-    }
-
-	.cta-inner {
-        transform: scale(0.9); /* 外側の拡大を打ち消して文字サイズを適正化 */
+        text-align: center !important;
     }
 
     .cta-title {
         font-family: "Zen Maru Gothic", sans-serif !important;
-        font-size: 15px !important; 
-        line-height: 1.4 !important;
-        margin-bottom: 20px !important;
+        font-size: 18px !important; /* 小さすぎない視認性を確保 */
+        line-height: 1.5 !important;
+        margin-bottom: 25px !important;
         color: #333 !important;
+        font-weight: 700 !important;
     }
 
     .cta-btn-wrap a {
         font-family: "Zen Maru Gothic", sans-serif !important;
-        font-size: 17px !important;
-        min-width: 180px !important;
-        padding: 12px 20px !important;
-        border-radius: 10px !important;
+        font-size: 19px !important;
+        min-width: 240px !important;
+        padding: 15px 30px !important;
+        border-radius: 12px !important;
         background: linear-gradient(180deg, #E8B7B7 0%, #D6A0A0 100%) !important;
         color: #fff !important;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
     }
 
     .marker {
-        background: linear-gradient(transparent 70%, #F4B8B8 30%) !important;
+        background: linear-gradient(transparent 60%, #F4B8B8 40%) !important;
     }
 
-    /* 症例ボタン：中央寄せの強制 */
+    /* 症例ボタン：中央寄せと装飾の完全復帰 */
     .case-btn-area {
         padding: 20px 0 40px !important;
-        text-align: center !important; /* 親要素で中央寄せ */
-        background: #FFF3F2 !important;
-        width: 100% !important;
-    }
-
-    .case-btn {
-        display: block !important;
         text-align: center !important;
+        background: #FFF3F2 !important;
     }
 
     .case-btn a {
-        display: inline-flex !important; /* インラインブロックで中央寄せを有効化 */
+        display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
-        min-width: 240px !important;
-        padding: 14px 30px !important;
+        min-width: 280px !important;
+        padding: 18px 40px !important;
         border-radius: 12px !important;
         background: linear-gradient(180deg, #B5A696 0%, #D1C5B9 100%) !important;
         color: #fff !important;
-        font-size: 18px !important;
+        font-size: 20px !important;
         font-weight: 700 !important;
         box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
     }
 }
 
-/* 共通パーツ（PC/SP共通の不整合を修正） */
-.cta-area ._icon { display: none; }
+/* PC用および共通設定の不整合を解消 */
 .participation-cta { text-align: center; }
+.cta-area ._icon { display: none; }
