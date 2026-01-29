@@ -419,18 +419,17 @@ a {
 
 
 /* 参加CTAセクション：デザイン修正 */
-/* --- 参加CTAセクションの修正 --- */
 .participation-cta {
     text-align: center;
     background-image: url("../img/cta_bg_pink.png");
     background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain; /* 修正：必ず枠内に収める */
+    background-position: center 40%; /* 少し上にずらして見本に近づける */
+    background-size: cover;          /* 修正：枠を埋めるように広げる */
     margin: 40px auto;
     max-width: 600px;
-    padding: 60px 20px;
-    /* 修正：Zen Maru Gothic を優先 */
+    padding: 100px 20px;            /* 上下の余白を増やして背景を見せる */
     font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
+    overflow: hidden;               /* はみ出し防止 */
 }
 
 .cta-title {
@@ -461,9 +460,9 @@ a {
 /* --- SP専用調整：ここにある古い !important 指定を上書きします --- */
 @media screen and (max-width: 899px) {
     .participation-cta {
-        /* 修正：以前の 160% などの指定を無効化し、枠内に収めます */
-        padding: 50px 10px !important; 
-        background-size: contain !important; 
+        /* 背景がしっかり見えるよう、高さ（padding）を確保 */
+        padding: 80px 10px !important; 
+        background-size: 120% auto !important; /* 横幅を少しはみ出させて見本に寄せる */
         background-position: center center !important;
         margin: 20px auto !important;
     }
