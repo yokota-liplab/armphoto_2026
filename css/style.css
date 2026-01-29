@@ -343,99 +343,70 @@ a {
     body { background: #FFF2F2; }
     .main { background: transparent; }
 
-    /* CTAセクションのSP修正 */
-    .participation-cta {
-        padding: 60px 20px !important; 
-        background-size: contain !important; 
-        background-position: center center !important;
-        margin: 20px auto !important;
-        background-image: url("../img/cta_bg_pink.png") !important;
-        background-repeat: no-repeat !important;
-        font-family: "Zen Maru Gothic", sans-serif !important;
-    }
-
-    .cta-title {
-        font-family: "Zen Maru Gothic", sans-serif !important;
-        font-size: 18px !important;
-        margin-bottom: 25px !important;
-        line-height: 1.4 !important;
-        color: #333 !important;
-    }
-
-    .cta-btn-wrap a {
-        font-family: "Zen Maru Gothic", sans-serif !important;
-        font-size: 19px !important;
-        min-width: 220px !important;
-        padding: 15px 30px !important;
-        background: linear-gradient(180deg, #E8B7B7 0%, #D6A0A0 100%) !important;
-        color: #fff !important;
-        border-radius: 12px !important;
-        display: inline-flex !important;
-    }
 }
 
-/* 共通パーツ */
-.cta-area ._icon { display: none; }
-
-.case-btn-area {
-    padding: 20px 0 40px;
-    text-align: center;
-    background: #FFF3F2;
-}
-
-.case-btn a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 292px;
-    padding: 18px 40px;
-    border-radius: 12px;
-    background: linear-gradient(180deg, #B5A696 0%, #D1C5B9 100%);
-    color: #fff;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: .05em;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
-}
-
-/* PC用CTAデザイン（上書き防止のため共通エリアに配置） */
+    /* 参加CTAセクション：デザイン修正（PC/SP共通ベース） */
 .participation-cta {
     text-align: center;
-    background-image: url("../img/cta_bg_pink.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
-    margin: 40px auto;
+    background-image: url("../img/cta_bg_pink.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    /* 修正：画像を枠いっぱいに広げる */
+    background-size: cover !important; 
+    margin: 40px auto !important;
     max-width: 600px;
-    padding: 60px 20px;
-    font-family: "Zen Maru Gothic", sans-serif;
+    /* 修正：上下の余白を増やして、背景が大きく見える面積を確保する */
+    padding: 100px 20px !important; 
+    font-family: "Zen Maru Gothic", sans-serif !important;
 }
 
 .cta-title {
-    font-family: "Zen Maru Gothic", sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.6;
-    color: #333;
-    margin-bottom: 25px;
+    font-family: "Zen Maru Gothic", sans-serif !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    line-height: 1.6 !important;
+    color: #333 !important;
+    margin-bottom: 25px !important;
 }
 
 .cta-btn-wrap a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 280px;
-    padding: 16px 40px;
-    background: linear-gradient(180deg, #E8B7B7 0%, #D6A0A0 100%);
-    color: #fff;
-    font-size: 22px;
-    font-weight: 700;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 280px !important;
+    padding: 16px 40px !important;
+    background: linear-gradient(180deg, #E8B7B7 0%, #D6A0A0 100%) !important;
+    color: #fff !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    font-family: "Zen Maru Gothic", sans-serif !important;
 }
 
 .marker {
-    background: linear-gradient(transparent 50%, #F4B8B8 50%);
-    padding: 0 4px;
+    background: linear-gradient(transparent 50%, #F4B8B8 50%) !important;
+    padding: 0 4px !important;
+}
+
+/* ========== SP専用調整（既存のメディアクエリ内を上書き） ========== */
+@media screen and (max-width: 899px) {
+    .participation-cta {
+        /* スマホでも背景がしっかり見えるよう高さを調整 */
+        padding: 80px 10px !important; 
+        /* 修正：スマホ画面に合わせて背景を少し拡大気味に表示 */
+        background-size: 140% auto !important; 
+        margin: 20px auto !important;
+    }
+
+    .cta-title {
+        font-size: 18px !important;
+    }
+
+    .cta-btn-wrap a {
+        font-size: 19px !important;
+        min-width: 220px !important;
+        padding: 12px 30px !important;
+    }
+
 }
