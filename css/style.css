@@ -360,8 +360,26 @@ a {
 		background: transparent;
 	  }
 
+	  participation-cta {
+        padding: 40px 15px; /* 上下の余白を詰める */
+        background-size: 95% auto; /* 背景を少し小さくして余白を作る */
+    }
 
+    .cta-title {
+        font-size: 18px; /* テキストを一回り小さく */
+        margin-bottom: 20px;
+        line-height: 1.4;
+    }
 
+    .marker {
+        background: linear-gradient(transparent 65%, #F4B8B8 65%);
+    }
+
+    .cta-btn-wrap a {
+        font-size: 18px;
+        min-width: 220px;
+        padding: 14px 30px;
+    }
 }
 
 /* 途中CTAではアイコン非表示にして文字をど真ん中にする */
@@ -396,15 +414,15 @@ a {
 
 /* 参加CTAセクション */
 .participation-cta {
-    padding: 80px 20px;
+    padding: 100px 20px; /* 上下の余白を増やして背景が見える面積を広げる */
     text-align: center;
-    /* 背景画像を絶対パスに近い書き方に変えてみる */
-    background-image: url("img/cta_bg_pink.png"); 
+    background-image: url("../img/cta_bg_pink.png");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: contain;
+    /* 修正ポイント：contain から 100% auto に変更 */
+    background-size: 100% auto; 
     margin: 40px auto;
-    max-width: 600px;
+    max-width: 600px; /* ここが枠の最大幅になります */
 }
 
 /* テキスト：今すぐ公式... */
@@ -418,9 +436,9 @@ a {
 
 /* ピンクのマーカー下線 */
 .marker {
-    background: linear-gradient(transparent 60%, #F4B8B8 60%);
-    padding: 0 2px;
-    white-space: nowrap; /* 改行を防ぐ */
+    /* linear-gradient の数値を 50% 50% くらいにすると太くなります */
+    background: linear-gradient(transparent 50%, #F4B8B8 50%);
+    padding: 0 4px;
 }
 
 /* ボタン本体：参加する */
