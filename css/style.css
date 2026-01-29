@@ -1,0 +1,371 @@
+@charset "UTF-8";
+
+/* ========== Reset & Base ========== */
+*,
+*::before,
+*::after {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	color: #333;
+	font-family: "Noto Sans JP", "Noto Sans CJK JP", "Noto Sans Japanese", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W6", ヒラギノ角ゴシック, "Hiragino Sans", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	line-height: 1.5;
+	overflow-wrap: break-word;
+	position: relative;
+	z-index: 1;
+}
+
+img {
+	border: 0;
+	display: block;
+	width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+
+a {
+	cursor: pointer;
+	text-decoration: none;
+	color: inherit;
+	display: inline-block;
+}
+
+/* 選択色 */
+*::-moz-selection {
+	background-color: #BDA762;
+	color: #fff;
+}
+*::selection {
+	background-color: #BDA762;
+	color: #fff;
+}
+
+/* ========== Layout ========== */
+
+/* スマホ幅のカラム */
+.main {
+	background: #fff;
+	z-index: 1;
+	margin-top: 60px; /* ヘッダー高さ分 */
+}
+
+.inner {
+	box-sizing: content-box;
+	margin: 0 auto;
+	max-width: 600px;
+	padding: 0; /* SP では余白なし（画像を画面いっぱいに） */
+}
+
+/* 画像ブロック（分割した画像を縦に並べるだけ） */
+.box-img {
+	margin-top: -1px; /* 画像の隙間消し */
+}
+
+/* フッター */
+.footer {
+	background: #F7AEAE;
+	color: #fff;
+	font-family: "Times New Roman", Times, "Georgia", "Baskerville", "Palatino Linotype", "Book Antiqua", serif;
+	font-size: 10px;
+	letter-spacing: .1em;
+	margin-top: 60px;
+	padding: 8px 10px;
+	text-align: center;
+}
+
+/* ========== Header（追従） ========== */
+
+.head {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 60px;
+	padding: 0 15px;
+	background-color: transparent;
+	z-index: 100;
+}
+
+.head-logo {
+	line-height: 1;
+	width: 140px;
+}
+
+.head-btn {
+	margin-left: auto;
+}
+
+/* ========== ボタン共通（ヘッダー＆途中CTA） ========== */
+
+.cta-btn {
+	margin: 0 auto;
+	max-width: 292px;
+}
+
+.head-btn a,
+.cta-btn a {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	padding: 12px 32px;
+	border-radius: 999px;
+	background: -webkit-linear-gradient(0deg, #B67B19 0%, #F7D898 50%, #B67B19 100%);
+	background: linear-gradient(90deg, #B67B19 0%, #F7D898 50%, #B67B19 100%);
+	color: #7A111C;
+	font-size: 16px;
+	font-weight: 700;
+	letter-spacing: .18em;
+	box-shadow: 0 0 0 1px rgba(125, 25, 32, 0.1);
+}
+
+/* ヘッダー内のアイコンを使う場合用（使っていなければ無視される） */
+.head-btn a > ._icon {
+	display: inline-block;
+	margin-right: 7px;
+	width: 20px;
+}
+
+
+/* ========== 途中の赤背景＋CTAエリア ========== */
+
+.cta-area {
+	background: #801C28;
+	padding: 30px 0;
+	text-align: center;
+	width: 100%;           /* .inner の幅いっぱい = 画像と同じ */
+	box-sizing: border-box;
+}
+
+/* CTAボタンのコンテナ（中央寄せ） */
+.cta-btn {
+	max-width: 292px;
+	margin: 0 auto;
+}
+
+/* ========== PC レイアウト（スマホ幅を中央に表示） ========== */
+
+._pc { display: none; }
+._sp { display: block; }
+
+@media screen and (min-width: 900px) {
+
+	body {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+	}
+
+	body::before {
+		content: '';
+		position: fixed;
+		inset: 0;
+		background:#F7AEAE;          /*背景画像の場合有効にするurl("../img/pc_bg.jpg") center center / cover no-repeat;:/
+		z-index: -100;
+	}
+
+	.main {
+		margin: auto;
+		max-width: 600px;
+		width: 40%;
+		background: transparent;  /* ← 白カードをやめる */
+	}
+
+	.inner {
+		padding: 0;               /* ← 左右の30px余白をなくす */
+	}
+
+	/* ▼ ヘッダーのPCレイアウト調整 ▼ */
+	.head {
+		padding: 0 30px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		top: 24px;
+		height: auto;
+	  }
+	
+	  .head-btn {
+		margin-left: auto;
+		flex: 0 0 auto;
+	  }
+	
+	  .head-btn a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 20px;
+		padding: 19px 40px 19px 32px; /* 上右下左 */
+		min-width: 292px;            /* ★ 横幅を強制的に広げる */
+		border-radius: 34px;
+		letter-spacing: .08em;
+		white-space: nowrap;
+	  }
+
+
+	/* ボタンのホバー */
+	.cta-btn a {
+		-webkit-transition: -webkit-transform .3s;
+		transition: -webkit-transform .3s;
+		transition: transform .3s;
+		transition: transform .3s, -webkit-transform .3s;
+	}
+	.cta-btn a:hover {
+		-webkit-transform: translateY(4px);
+		transform: translateY(4px);
+	}
+
+	.side-logo {
+		position: fixed;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 24%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0 3%;
+	}
+
+	.side-logo img {
+		max-width: 50%;   
+		height: auto;
+	}
+
+	/* メインカラムを少し右に寄せる */
+	.main {
+		margin: auto;
+		max-width: 600px;
+		width: 40%;
+	}
+
+
+/* PC時：途中CTAボタンを大きく＆ど真ん中に */
+.cta-area .cta-btn a {
+    display: inline-block;     /* ヘッダーと切り離してシンプルに */
+    text-align: center;
+    font-size: 28px;
+    padding: 26px 100px;        /* 上下20px 左右80px：左右対称 */
+    border-radius: 60px;
+    letter-spacing: .18em;
+    white-space: nowrap;
+    min-width: auto;           /* 横幅はpadding＋文字分だけ */
+  }
+
+  .cta-area .cta-btn {
+    max-width: none;   /* ← 292px の制限を解除 */
+    width: auto;       /* aタグの大きさに合わせる */
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    max-width: 600px;
+    top: 0;
+    bottom: 0;
+    background: #FFF2F2;
+    z-index: -50;
+  }
+
+
+}
+
+
+
+
+/* ========== SP専用調整 ========== */
+
+@media screen and (max-width: 899px) {
+
+	._pc { display: none; }
+	._sp { display: block; }
+
+	.head {
+		background-color: #fff;
+		padding: 0 16px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04); /* うっすら影（不要なら消してOK） */
+	  }
+	
+	  /* 本来 _pc で消していたロゴをSPだけ表示 */
+	  .head-logo._pc {
+		display: block;
+		width: 130px;              /* ロゴの横幅。大きさはここで調整 */
+	  }
+	  .head-logo._pc img {
+		width: 100%;
+		height: auto;
+	  }
+	
+	  /* ボタンは右側固定 */
+	  .head-btn {
+		margin-left: auto;
+		flex: 0 0 auto;
+	  }
+	
+	  .head-btn a {
+		font-size: 18px;
+		padding: 12px 50px;
+		border-radius: 5px;        /* 参考バナーっぽい角丸に */
+		letter-spacing: .05em;
+	  }
+
+		/* SP：ヘッダーではアイコン自体を非表示にしてテキストをど真ん中に */
+	.head-btn a > ._icon {
+	display: none;
+	margin-right: 0;
+  	}
+
+	  body {
+		background: #FFF2F2;
+	  }
+
+	  .main {
+		background: transparent;
+	  }
+
+
+
+}
+
+/* 途中CTAではアイコン非表示にして文字をど真ん中にする */
+.cta-area ._icon {
+	display: none;
+  }
+
