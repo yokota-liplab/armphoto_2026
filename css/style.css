@@ -420,41 +420,27 @@ a {
 
 /* 参加CTAセクション：デザイン修正 */
 .participation-cta {
-    text-align: center;
-    background-image: url("../img/cta_bg_pink.png");
-    background-repeat: no-repeat;
-    background-position: center 40%; /* 少し上にずらして見本に近づける */
-    background-size: cover;          /* 修正：枠を埋めるように広げる */
-    margin: 40px auto;
-    max-width: 600px;
-    padding: 100px 20px;            /* 上下の余白を増やして背景を見せる */
-    font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
-    overflow: hidden;               /* はみ出し防止 */
+	/* 背景を枠内に収める修正 */
+	padding: 60px 20px !important; 
+	background-size: contain !important; 
+	background-position: center center !important;
+	margin: 20px auto !important;
 }
 
 .cta-title {
-    font-family: "Zen Maru Gothic", sans-serif; /* 修正：フォント指定 */
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.6;
-    color: #333;
-    margin-bottom: 25px;
+	/* フォントを Zen Maru Gothic にする修正 */
+	font-family: "Zen Maru Gothic", sans-serif !important;
+	font-size: 18px !important;
+	margin-bottom: 25px !important;
+	line-height: 1.4 !important;
 }
 
 .cta-btn-wrap a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 280px;
-    padding: 16px 40px;
-    background: linear-gradient(180deg, #E8B7B7 0%, #D6A0A0 100%);
-    color: #fff;
-    font-size: 22px;
-    font-weight: 700;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-    font-family: "Zen Maru Gothic", sans-serif; /* 修正：ボタンも指定 */
+	/* ボタンのフォントも合わせる修正 */
+	font-family: "Zen Maru Gothic", sans-serif !important;
+	font-size: 19px !important;
+	min-width: 220px !important;
+	padding: 15px 30px !important;
 }
 
 /* --- SP専用調整：ここにある古い !important 指定を上書きします --- */
