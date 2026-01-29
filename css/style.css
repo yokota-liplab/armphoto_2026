@@ -389,6 +389,7 @@ a {
 .case-btn-area {
     padding: 20px 0 40px;
     text-align: center;
+	background: #FFF3F2;
 }
 
 .case-btn a {
@@ -406,4 +407,33 @@ a {
     letter-spacing: .05em;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 影で立体感を出す */
     transition: transform 0.3s;
+}
+
+.participation-cta {
+    background: url("../img/cta_bg_pink.png") no-repeat center center / contain; /* ここに書き出した背景画像を指定 */
+    padding: 60px 0;
+    text-align: center;
+    margin: 40px auto;
+    max-width: 540px; /* デザインに合わせた横幅 */
+}
+
+.cta-text {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.cta-text span {
+    border-bottom: 4px solid #F7AEAE; /* ピンクのアンダーライン */
+}
+
+.cta-btn-wrap img {
+    width: 280px; /* ボタン画像のサイズ調整 */
+    margin: 0 auto;
+    transition: transform 0.3s;
+}
+
+.cta-btn-wrap a:hover img {
+    transform: scale(1.05);
 }
