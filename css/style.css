@@ -153,21 +153,6 @@ a {
 }
 
 
-/* ========== 途中の赤背景＋CTAエリア ========== */
-
-.cta-area {
-	background: #801C28;
-	padding: 30px 0;
-	text-align: center;
-	width: 100%;           /* .inner の幅いっぱい = 画像と同じ */
-	box-sizing: border-box;
-}
-
-/* CTAボタンのコンテナ（中央寄せ） */
-.cta-btn {
-	max-width: 292px;
-	margin: 0 auto;
-}
 
 .case-btn a:hover {
     transform: translateY(2px);
@@ -409,31 +394,60 @@ a {
     transition: transform 0.3s;
 }
 
+/* 参加CTAセクション */
 .participation-cta {
-    background: url("../img/cta_bg_pink.png") no-repeat center center / contain; /* ここに書き出した背景画像を指定 */
-    padding: 60px 0;
+    padding: 80px 20px;
     text-align: center;
+    /* 背景画像を絶対パスに近い書き方に変えてみる */
+    background-image: url("img/cta_bg_pink.png"); 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
     margin: 40px auto;
-    max-width: 540px; /* デザインに合わせた横幅 */
+    max-width: 600px;
 }
 
-.cta-text {
-    font-size: 20px;
+/* テキスト：今すぐ公式... */
+.cta-title {
+    font-size: 24px;
     font-weight: 700;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 30px;
 }
 
-.cta-text span {
-    border-bottom: 4px solid #F7AEAE; /* ピンクのアンダーライン */
+/* ピンクのマーカー下線 */
+.marker {
+    background: linear-gradient(transparent 60%, #F4B8B8 60%);
+    padding: 0 2px;
+    white-space: nowrap; /* 改行を防ぐ */
 }
 
-.cta-btn-wrap img {
-    width: 280px; /* ボタン画像のサイズ調整 */
-    margin: 0 auto;
-    transition: transform 0.3s;
+/* ボタン本体：参加する */
+.cta-btn-wrap a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 280px;
+    padding: 18px 40px;
+    /* デザインに合わせたピンク〜ベージュのグラデーション */
+    background: linear-gradient(180deg, #E8B7B7 0%, #D6A0A0 100%);
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
 }
 
-.cta-btn-wrap a:hover img {
-    transform: scale(1.05);
+.cta-btn-wrap a:hover {
+    transform: scale(1.02);
+}
+
+/* SP用：文字サイズを少し小さく */
+@media screen and (max-width: 899px) {
+    .participation-cta { padding: 60px 15px; }
+    .cta-title { font-size: 20px; }
+    .cta-btn-wrap a { font-size: 20px; min-width: 240px; }
 }
