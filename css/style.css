@@ -305,99 +305,82 @@ a {
 }
 
 
-
-
-/* ========== SP専用調整 ========== */
-
+/* ========== SP専用調整（競合を解消した最新版） ========== */
 @media screen and (max-width: 899px) {
+    ._pc { display: none; }
+    ._sp { display: block; }
 
-	._pc { display: none; }
-	._sp { display: block; }
+    .head {
+        background-color: #fff;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    }
+    
+    .head-logo._pc {
+        display: block;
+        width: 130px;
+    }
+    
+    .head-btn {
+        margin-left: auto;
+        flex: 0 0 auto;
+    }
+    
+    .head-btn a {
+        font-size: 18px;
+        padding: 12px 50px;
+        border-radius: 5px;
+        letter-spacing: .05em;
+    }
 
-	.head {
-		background-color: #fff;
-		padding: 0 16px;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04); /* うっすら影（不要なら消してOK） */
-	  }
-	
-	  /* 本来 _pc で消していたロゴをSPだけ表示 */
-	  .head-logo._pc {
-		display: block;
-		width: 130px;              /* ロゴの横幅。大きさはここで調整 */
-	  }
-	  .head-logo._pc img {
-		width: 100%;
-		height: auto;
-	  }
-	
-	  /* ボタンは右側固定 */
-	  .head-btn {
-		margin-left: auto;
-		flex: 0 0 auto;
-	  }
-	
-	  .head-btn a {
-		font-size: 18px;
-		padding: 12px 50px;
-		border-radius: 5px;        /* 参考バナーっぽい角丸に */
-		letter-spacing: .05em;
-	  }
+    .head-btn a > ._icon {
+        display: none;
+    }
 
-		/* SP：ヘッダーではアイコン自体を非表示にしてテキストをど真ん中に */
-	.head-btn a > ._icon {
-	display: none;
-	margin-right: 0;
-  	}
+    body { background: #FFF2F2; }
+    .main { background: transparent; }
 
-	  body {
-		background: #FFF2F2;
-	  }
-
-	  .main {
-		background: transparent;
-	  }
-
-	  .participation-cta {
-        /* 上下の余白を大幅に増やして、背景が見える縦幅を強制的に確保します */
-        padding: 120px 10px !important; 
-        
-        /* 画像自体の余白を無視するため、画面幅の1.5倍〜2倍のサイズを指定します */
-        background-size: 160% auto !important; 
-        
-        /* 画面からはみ出しても中央を基準に表示させます */
+    /* CTAセクションのSP修正 */
+    .participation-cta {
+        padding: 60px 20px !important; 
+        background-size: contain !important; 
         background-position: center center !important;
-        
         margin: 20px auto !important;
+        background-image: url("../img/cta_bg_pink.png") !important;
+        background-repeat: no-repeat !important;
+        font-family: "Zen Maru Gothic", sans-serif !important;
     }
 
     .cta-title {
+        font-family: "Zen Maru Gothic", sans-serif !important;
         font-size: 18px !important;
         margin-bottom: 25px !important;
         line-height: 1.4 !important;
+        color: #333 !important;
     }
 
     .cta-btn-wrap a {
+        font-family: "Zen Maru Gothic", sans-serif !important;
         font-size: 19px !important;
         min-width: 220px !important;
         padding: 15px 30px !important;
+        background: linear-gradient(180deg, #E8B7B7 0%, #D6A0A0 100%) !important;
+        color: #fff !important;
+        border-radius: 12px !important;
+        display: inline-flex !important;
     }
-
 }
 
-/* 途中CTAではアイコン非表示にして文字をど真ん中にする */
-.cta-area ._icon {
-	display: none;
-  }
+/* 共通パーツ */
+.cta-area ._icon { display: none; }
 
-
-  /* 症例ボタン専用のデザイン */
 .case-btn-area {
     padding: 20px 0 40px;
     text-align: center;
-	background: #FFF3F2;
+    background: #FFF3F2;
 }
 
 .case-btn a {
@@ -406,60 +389,53 @@ a {
     justify-content: center;
     min-width: 292px;
     padding: 18px 40px;
-    border-radius: 12px; /* 画像に合わせた角丸 */
-    /* ブラウン系のグラデーション */
+    border-radius: 12px;
     background: linear-gradient(180deg, #B5A696 0%, #D1C5B9 100%);
     color: #fff;
     font-size: 20px;
     font-weight: 700;
     letter-spacing: .05em;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 影で立体感を出す */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
 }
 
-
-/* 参加CTAセクション：デザイン修正 */
+/* PC用CTAデザイン（上書き防止のため共通エリアに配置） */
 .participation-cta {
-	/* 背景を枠内に収める修正 */
-	padding: 60px 20px !important; 
-	background-size: contain !important; 
-	background-position: center center !important;
-	margin: 20px auto !important;
+    text-align: center;
+    background-image: url("../img/cta_bg_pink.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    margin: 40px auto;
+    max-width: 600px;
+    padding: 60px 20px;
+    font-family: "Zen Maru Gothic", sans-serif;
 }
 
 .cta-title {
-	/* フォントを Zen Maru Gothic にする修正 */
-	font-family: "Zen Maru Gothic", sans-serif !important;
-	font-size: 18px !important;
-	margin-bottom: 25px !important;
-	line-height: 1.4 !important;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 25px;
 }
 
 .cta-btn-wrap a {
-	/* ボタンのフォントも合わせる修正 */
-	font-family: "Zen Maru Gothic", sans-serif !important;
-	font-size: 19px !important;
-	min-width: 220px !important;
-	padding: 15px 30px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 280px;
+    padding: 16px 40px;
+    background: linear-gradient(180deg, #E8B7B7 0%, #D6A0A0 100%);
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* --- SP専用調整：ここにある古い !important 指定を上書きします --- */
-@media screen and (max-width: 899px) {
-    .participation-cta {
-        /* 背景がしっかり見えるよう、高さ（padding）を確保 */
-        padding: 80px 10px !important; 
-        background-size: 120% auto !important; /* 横幅を少しはみ出させて見本に寄せる */
-        background-position: center center !important;
-        margin: 20px auto !important;
-    }
-
-    .cta-title {
-        font-family: "Zen Maru Gothic", sans-serif !important;
-        font-size: 18px !important;
-    }
-
-    .cta-btn-wrap a {
-        font-family: "Zen Maru Gothic", sans-serif !important;
-        font-size: 19px !important;
-    }
+.marker {
+    background: linear-gradient(transparent 50%, #F4B8B8 50%);
+    padding: 0 4px;
 }
