@@ -134,11 +134,11 @@ a {
 	-webkit-justify-content: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-	padding: 12px 32px;
+	padding: 11px 20px;
 	border-radius: 999px;
-	background: -webkit-linear-gradient(0deg, #B67B19 0%, #F7D898 50%, #B67B19 100%);
-	background: linear-gradient(90deg, #B67B19 0%, #F7D898 50%, #B67B19 100%);
-	color: #7A111C;
+	background: -webkit-linear-gradient(0deg, #FF9A9E 0%, #ffbbe9 100%);
+	background: linear-gradient(90deg, #FF9A9E 0%, #ffbbe9 100%);
+	color: #ffff;
 	font-size: 16px;
 	font-weight: 700;
 	letter-spacing: .18em;
@@ -168,6 +168,21 @@ a {
 	max-width: 292px;
 	margin: 0 auto;
 }
+
+.case-btn a:hover {
+    transform: translateY(2px);
+    opacity: 0.9;
+}
+
+/* スマホ用のサイズ微調整 */
+@media screen and (max-width: 899px) {
+    .case-btn a {
+        font-size: 18px;
+        min-width: 240px;
+        padding: 14px 30px;
+    }
+}
+
 
 /* ========== PC レイアウト（スマホ幅を中央に表示） ========== */
 
@@ -369,3 +384,26 @@ a {
 	display: none;
   }
 
+
+  /* 症例ボタン専用のデザイン */
+.case-btn-area {
+    padding: 20px 0 40px;
+    text-align: center;
+}
+
+.case-btn a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 292px;
+    padding: 18px 40px;
+    border-radius: 12px; /* 画像に合わせた角丸 */
+    /* ブラウン系のグラデーション */
+    background: linear-gradient(180deg, #B5A696 0%, #D1C5B9 100%);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 影で立体感を出す */
+    transition: transform 0.3s;
+}
