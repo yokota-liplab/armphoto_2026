@@ -54,7 +54,7 @@ a {
 
 /* スマホ幅のカラム */
 .main {
-	background: #fff;
+	background: #FFF2F2;
 	z-index: 1;
 	margin-top: 60px; /* ヘッダー高さ分 */
 }
@@ -191,7 +191,7 @@ a {
 		content: '';
 		position: fixed;
 		inset: 0;
-		background:#F7AEAE;          /*背景画像の場合有効にするurl("../img/pc_bg.jpg") center center / cover no-repeat;:/
+		background:url("../img/pc_bg.jpg") center center / cover no-repeat;
 		z-index: -100;
 	}
 
@@ -304,12 +304,13 @@ a {
 
 }
 
-/* ========== SP専用調整：全要素のサイズ・配置の最終統合版 ========== */
+
+/* ========== SP専用調整（899px以下）：完成版を維持 ========== */
 @media screen and (max-width: 899px) {
     ._pc { display: none; }
     ._sp { display: block; }
 
-    /* --- ヘッダー：デザインと高さを固定 --- */
+    /* ヘッダー */
     .head {
         background-color: #fff !important;
         padding: 0 16px !important;
@@ -326,46 +327,42 @@ a {
     .head-logo._pc img { width: 100%; height: auto; }
     .head-btn { margin-left: auto !important; flex: 0 0 auto !important; }
     
-    /* ヘッダーの参加するボタン：大きく、太く調整 */
+    /* 完成済みのSPヘッダーボタン */
     .head-btn a {
-        font-size: 18px !important;       /* 文字を大きく */
-        padding: 12px 45px !important;    /* 横幅をしっかりと確保 */
+        font-size: 18px !important;
+        padding: 12px 45px !important;
         border-radius: 5px !important;
-        letter-spacing: .05em !important;
         background: linear-gradient(90deg, #FF9A9E 0%, #ffbbe9 100%) !important;
-        color: #fff !important;
+        color: #fff !important; 
         display: inline-flex !important;
         font-weight: 700 !important;
         white-space: nowrap !important;
     }
     .head-btn a > ._icon { display: none !important; }
 
-    /* レイアウトベース */
     body { background: #FFF2F2 !important; }
     .main { background: transparent !important; margin-top: 60px !important; }
 
-    /* --- 参加CTA：画像を切らさず、大きく見せる --- */
+    /* 完成済みのSP用CTA */
     .participation-cta {
         background-image: url("../img/cta_bg_pink.png") !important;
-        background-size: 100% auto !important; /* 横幅いっぱいに固定 */
+        background-size: 100% auto !important;
         background-position: center center !important;
         background-repeat: no-repeat !important;
-        padding: 85px 10px !important; /* 上下の余白で画像面積を確保 */
+        padding: 85px 10px !important;
         margin: 20px auto !important;
         width: 100% !important;
         font-family: "Zen Maru Gothic", sans-serif !important;
         text-align: center !important;
     }
-
     .cta-title {
         font-family: "Zen Maru Gothic", sans-serif !important;
-        font-size: 16px !important; 
+        font-size: 16px !important;
         line-height: 1.5 !important;
         margin-bottom: 20px !important;
         font-weight: 700 !important;
         color: #333 !important;
     }
-
     .cta-btn-wrap a {
         font-family: "Zen Maru Gothic", sans-serif !important;
         font-size: 18px !important;
@@ -375,14 +372,14 @@ a {
         background: linear-gradient(180deg, #E8B7B7 0%, #D6A0A0 100%) !important;
         color: #fff !important;
     }
-
     .marker { background: linear-gradient(transparent 60%, #F4B8B8 40%) !important; }
 
-    /* --- 症例ボタン：中央寄せとデザインの完全維持 --- */
+    /* 完成済みのSP用症例ボタン */
     .case-btn-area {
         padding: 20px 0 40px !important;
         text-align: center !important;
         background: #FFF3F2 !important;
+        width: 100% !important;
     }
     .case-btn a {
         display: inline-flex !important;
@@ -399,6 +396,73 @@ a {
     }
 }
 
-/* 共通パーツの整合性 */
-.cta-area ._icon { display: none; }
-.participation-cta { text-align: center; }
+/* ========== PC専用・共通設定：消えていた部分を確実に復旧（900px以上） ========== */
+@media screen and (min-width: 900px) {
+    /* PC版CTAのデザイン復旧 */
+    .participation-cta {
+        text-align: center;
+        background-image: url("../img/cta_bg_pink.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        margin: 40px auto;
+        max-width: 600px;
+        padding: 100px 20px;
+        font-family: "Zen Maru Gothic", sans-serif;
+    }
+
+    .cta-title {
+        font-family: "Zen Maru Gothic", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1.6;
+        color: #333;
+        margin-bottom: 25px;
+    }
+
+    .cta-btn-wrap a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 280px;
+        padding: 16px 40px;
+        background: linear-gradient(180deg, #E8B7B7 0%, #D6A0A0 100%);
+        color: #fff;
+        font-size: 22px;
+        font-weight: 700;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .marker {
+        background: linear-gradient(transparent 50%, #F4B8B8 50%);
+        padding: 0 4px;
+    }
+
+    /* 【重要】PC版症例ボタンのデザイン復旧 */
+    .case-btn-area {
+        display: block !important;
+        padding: 40px 0 60px !important;
+        text-align: center !important;
+        background-color: #FFF3F2 !important; /* ここで背景色を指定 */
+    }
+    .case-btn a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 292px;
+        padding: 18px 40px;
+        border-radius: 12px;
+        background: linear-gradient(180deg, #B5A696 0%, #D1C5B9 100%);
+        color: #fff;
+        font-size: 20px;
+        font-weight: 700;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        transition: transform 0.3s;
+    }
+    .case-btn a:hover {
+        transform: translateY(2px);
+        opacity: 0.9;
+    }
+}
+
