@@ -14,6 +14,7 @@ body {
 	padding: 0;
 	width: 100%;
 	overflow-x: hidden;
+    scroll-padding-top: 80px;
 }
 
 body {
@@ -313,7 +314,7 @@ a {
     /* ヘッダー */
     .head {
         background-color: #fff !important;
-        padding: 0 16px !important;
+        padding: 0 10px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
@@ -322,6 +323,7 @@ a {
         position: fixed !important;
         top: 0; left: 0; right: 0;
         z-index: 100;
+        gap: 5px; /* ロゴとボタンの間の隙間を最小限に */
     }
     .head-logo._pc { display: block !important; width: 130px !important; }
     .head-logo._pc img { width: 100%; height: auto; }
@@ -329,15 +331,29 @@ a {
     
     /* 完成済みのSPヘッダーボタン */
     .head-btn a {
-        font-size: 18px !important;
-        padding: 12px 45px !important;
-        border-radius: 5px !important;
-        background: linear-gradient(90deg, #FF9A9E 0%, #ffbbe9 100%) !important;
-        color: #fff !important; 
+        background: linear-gradient(90deg, #eab1b3 0%, #e6a4d1 100%) !important;
+        border-radius: 8px !important;  /* 角丸をカプセルではなく「長方形」に */
+        font-size: 14px !important;     /* 視認性を保つサイズ */
+        padding: 12px 20px !important;   /* 適度な上下左右の余白 */
+        color: #fff !important;
         display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        letter-spacing: 0.05em !important; /* ぎちぎちにならないよう微調整 */
+        min-width: 190px !important;
+        width: auto !important;
         font-weight: 700 !important;
-        white-space: nowrap !important;
+        text-decoration: none !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important; /* 軽い立体感 */
     }
+
+
+    /* ロゴの横幅を固定してボタンの場所を確保 */
+    .head-logo._pc {
+        width: 150px !important;
+        flex-shrink: 0;
+    }
+
     .head-btn a > ._icon { display: none !important; }
 
     body { background: #FFF2F2 !important; }
@@ -547,4 +563,16 @@ transition: transform 0.3s;    }
         font-size: 20px;
         border-width: 4px;
     }
+}
+
+.access-map {
+    width: 100%;
+    margin-top: -1px; /* 上の画像との隙間を物理的に埋める */
+    margin-bottom: 0;
+    line-height: 0;
+    background-color: #FFF2F2; /* 念のため背景色も合わせておく */
+}
+
+.access-map iframe {
+    vertical-align: bottom; /* iframe下部の微細な隙間を防止 */
 }
