@@ -354,7 +354,7 @@ a {
         width: 100% !important;
         font-family: "Zen Maru Gothic", sans-serif !important;
         text-align: center !important;
-    }
+     }
     .cta-title {
         font-family: "Zen Maru Gothic", sans-serif !important;
         font-size: 16px !important;
@@ -364,6 +364,7 @@ a {
         color: #333 !important;
     }
     .cta-btn-wrap a {
+        display: inline-block;
         font-family: "Zen Maru Gothic", sans-serif !important;
         font-size: 18px !important;
         min-width: 220px !important;
@@ -371,7 +372,9 @@ a {
         border-radius: 12px !important;
         background: linear-gradient(180deg, #E8B7B7 0%, #D6A0A0 100%) !important;
         color: #fff !important;
-    }
+/* アニメーションの設定をここに追加 */
+animation: fluffy 2s infinite ease-in-out;
+transition: transform 0.3s;    }
     .marker { background: linear-gradient(transparent 60%, #F4B8B8 40%) !important; }
 
     /* 完成済みのSP用症例ボタン */
@@ -432,6 +435,7 @@ a {
         font-weight: 700;
         border-radius: 12px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        animation: fluffy 2s infinite ease-in-out !important;
     }
 
     .marker {
@@ -498,5 +502,49 @@ a {
 @media screen and (min-width: 900px) {
     .video-container {
         padding: 0 30px 60px;
+    }
+}
+
+/* 今すぐチェックボタンのスタイル */
+.check-btn-wrap {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #FFF2F2; /* 背景色をLPと統一 */
+}
+
+.check-btn {
+    display: inline-block;
+    width: 90%;
+    max-width: 450px;
+    padding: 15px 0;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    background:#ce8d8d; 
+    border-radius: 12px !important;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fluffy 2s infinite ease-in-out; /* ふわふわ動くアニメ */
+}
+
+/* ホバー時の動き */
+.check-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(232, 183, 183, 0.4);
+    opacity: 1; /* ベースの透明度変更を打ち消し */
+}
+
+/* 目立たせるためのアニメーション */
+@keyframes fluffy {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* SP用のサイズ調整 */
+@media screen and (max-width: 899px) {
+    .check-btn {
+        font-size: 20px;
+        border-width: 4px;
     }
 }
