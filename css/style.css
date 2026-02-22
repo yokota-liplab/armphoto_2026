@@ -466,3 +466,37 @@ a {
     }
 }
 
+/* ========== 関連動画 埋め込み用設定 ========== */
+
+.video-container {
+    background-color: #FFF2F2; /* サイト全体の背景色と統一 */
+    padding: 0 5% 40px;        /* 左右に余白、下に少しスペース */
+    margin-top: -1px;          /* 画像との隙間を消す */
+}
+
+/* 16:9の比率を維持するレスポンシブ設定 */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;      /* 16:9比率 */
+    margin: 0 auto;
+    max-width: 540px;         /* 画像の文字幅に合わせるための調整 */
+    border-radius: 8px;       /* 少し角を丸くして柔らかい印象に */
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* 軽い影で動画を目立たせる */
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* PC時の動画サイズ微調整（広がりすぎ防止） */
+@media screen and (min-width: 900px) {
+    .video-container {
+        padding: 0 30px 60px;
+    }
+}
